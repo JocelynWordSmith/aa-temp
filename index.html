@@ -1,7 +1,7 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/cf6cb5b4.main.css><script src=scripts/vendor/1cb556bb.modernizr.js></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/9380e528.main.css><script src=scripts/vendor/1cb556bb.modernizr.js></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]--><div class="alan-arms-pos col-xs-12 bg-primary"><a class=home href=#><img src=images/7e3ff5a8.aa-tactical.png></a><nav class="navbar navbar-inverse navbar-static-top" role=navigation><ul class="nav navbar-nav col-md-12"><li class=col-md-2 onclick="router.navigate('scan',{trigger:true})">SCAN</li><li class=col-md-2 onclick="router.navigate('inventory',{trigger:true})">INVENTORY</li><li class=col-md-2 onclick="router.navigate('order',{trigger:true})">PLACE ORDER</li><li class=col-md-2 onclick="router.navigate('customers',{trigger:true})">CUSTOMERS</li><li class=col-md-2 onclick="router.navigate('shelf',{trigger:true})">SHELF</li><li class=col-md-2 onclick="router.navigate('orders',{trigger:true})">ORDERS</li></ul></nav></div><div class="app-container col-xs-10 col-md-offset-1"></div><script type=text/template class=dashboard-view><div class="sign-in-container col-md-4 col-md-offset-4">
-            <img class="col-md-12" src="images/7e3ff5a8.aa-tactical.png">
+        <![endif]--><div class="alan-arms-pos col-xs-12 bg-primary"><a class=home href=#><img src=http://imgur.com/lwT9J0X.png></a><nav class="navbar navbar-inverse navbar-static-top" role=navigation><ul class="nav navbar-nav col-md-12"><li class=col-md-2 onclick="router.navigate('scan',{trigger:true})">SCAN</li><li class=col-md-2 onclick="router.navigate('inventory',{trigger:true})">INVENTORY</li><li class=col-md-2 onclick="router.navigate('order',{trigger:true})">PLACE ORDER</li><li class=col-md-2 onclick="router.navigate('customers',{trigger:true})">CUSTOMERS</li><li class=col-md-2 onclick="router.navigate('shelf',{trigger:true})">SHELF</li><li class=col-md-2 onclick="router.navigate('orders',{trigger:true})">ORDERS</li></ul></nav></div><div class="app-container col-xs-10 col-md-offset-1"></div><script type=text/template class=dashboard-view><div class="sign-in-container col-md-4 col-md-offset-4">
+            <img class="col-md-12" src="http://imgur.com/lwT9J0X.png">
             <div><h2>Sign In</h2></div>
                 <div class="form-group sign-in-form">
                     <label>Username</label>
@@ -85,7 +85,7 @@
             <div class="manufacturer-title col-md-12">
                 <div class='center-number'></div>
             </div>
-            <div class="in-stock col-md-1 number-center">IN STOCK</div><div class="col-md-5 number-center">ITEM TYPE</div><div class="number-center col-md-2"># IN INVENTORY</div><div class="number-center col-md-2"> # ON BACKORDER</div>
+            <div class="col-md-10 inventory-section">ITEM TYPE</div><div class="inventory-section col-md-1">INVENTORY</div><div class="inventory-section col-md-1">BACKORDER</div>
             <ul class="inventory-list-item-bound col-xs-12"></ul>
             <ul class="inventory-list-detail-bound"></ul></script><script type=text/template class=inventory-list-item-view><li class="col-md-12"><div class="try product-id col-md-1"></div><div class="try item-type col-md-4"><%=itemType.attributes.Model%></div><div class="try item-description item-type col-md-5"> <%=itemType.attributes.Description%></div><div class="try all-inventory-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div><div class="try backorder-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div></li></script><script type=text/template class=inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><!-- 
 
@@ -114,7 +114,7 @@
             <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="order-instance" id="<%=order.id%>">
                 <div>Order : <%=order.attributes.orderNumber%></div>
                 <div>Placed : <%=customer.createdAt%></div>
-                <div>Customer : <%=customer.attributes.name%></div>
+                <div>Customer : <%=customer.attributes["Company"]%></div>
             </li></script><script type=text/template class=order-detail-view><li>
                 <div>Item : <%=itemType.attributes.Model%></div>
                 <div>SerialNum : <%=item.attributes.serialNumber%></div>
@@ -149,7 +149,7 @@
             <div class="manufacturer-title col-md-12">
                 <div class='center-number'></div>
             </div>
-            <div class="in-stock col-md-1 number-center"></div><div class="col-md-5 number-center">ITEM TYPE</div><div class="number-center col-md-3"># IN INVENTORY</div><div class="number-center col-md-3"> # ON BACKORDER</div>
+            <div class="col-md-6 inventory-section">ITEM TYPE</div><div class="inventory-section col-md-3">INVENTORY</div><div class="inventory-section col-md-3">BACKORDER</div>
             <ul class="inventory-list-item-bound col-xs-12"></ul>
             <ul class="inventory-list-detail-bound"></ul></script><script type=text/template class=order-inventory-list-item-view><li class="col-md-12"><div class="product-id col-md-1"><button class="order-item" value="<%=itemType.id%>"><%=itemType.attributes.DealerPrice%></button></div><div class="item-type col-md-5"> <%=itemType.attributes.Model%></div><div class="all-inventory-number number-center col-md-3"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div><div class="backorder-number number-center col-md-3"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div></li></script><script type=text/template class=order-inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=order-shopping-cart-view><div class="shopping-cart-item btn btn-info"><span><%=item[2]%></span></div></script><script type=text/template class=confirm-order-view><div class="top-info-bound">
             <div class="merchant-info">
@@ -182,7 +182,7 @@
                 <span>=<span class="total-item-cost"><%= (parseInt(item.DealerPrice.replace(/\s+/g, '').replace(/\,/g,'').substr(1)))*(item.quan) %></span></span>
             </div></script><script type=text/template class=update-order-total-view><div class="col-md-5 total-div">TOTAL</div><div class="sum-div col-md-7"><span><%=sum%></span></div></script><!-- FINAL ORDER TEMPLATE                                                                               FINAL ORDER TEMPLATE --><script type=text/template class=final-order-instance-view><div class="final-order">
         <div class="order-heading">
-            <img class="aa-tactical"src="images/7e3ff5a8.aa-tactical.png">
+            <img class="aa-tactical"src="http://imgur.com/lwT9J0X.png">
             <ul class="seller-info">
                 <li>Allen Arms Indoor Range</li>
                 <li>1210 pointset Highway</li>
@@ -225,7 +225,7 @@
             </ul>
             <ul class="right-info">
                 <li>Invoice Num: <%=order.createdAt.getFullYear()%>-<%=order.attributes.orderNumber%></li>
-                <li>Invoice Date: <%=order.createdAt.getDate()%>/<%=order.createdAt.getMonth()%>/<%=order.createdAt.getFullYear()%></li>
+                <li>Invoice Date: <%=(order.createdAt.getMonth()+1)%>/<%=order.createdAt.getDate()%>/<%=order.createdAt.getFullYear()%></li>
             </ul>
         </div></script><script type=text/template class=customer-info-order-items-template><ul class="ordered-item">
             <li>
@@ -572,7 +572,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script><script src=scripts/e4a5c37a.main.js></script><!-- <div id="contacts">
+            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script><script src=scripts/4f2ba55c.main.js></script><!-- <div id="contacts">
   <table>
     <thead>
       <tr>
