@@ -1,6 +1,6 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/9380e528.main.css><script src=scripts/vendor/1cb556bb.modernizr.js></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/c0994ef1.main.css><script src=scripts/vendor/d7100892.modernizr.js></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]--><div class="alan-arms-pos col-xs-12 bg-primary"><a class=home href=#><img src=http://imgur.com/lwT9J0X.png></a><nav class="navbar navbar-inverse navbar-static-top" role=navigation><ul class="nav navbar-nav col-md-12"><li class=col-md-2 onclick="router.navigate('scan',{trigger:true})">SCAN</li><li class=col-md-2 onclick="router.navigate('inventory',{trigger:true})">INVENTORY</li><li class=col-md-2 onclick="router.navigate('order',{trigger:true})">PLACE ORDER</li><li class=col-md-2 onclick="router.navigate('customers',{trigger:true})">CUSTOMERS</li><li class=col-md-2 onclick="router.navigate('shelf',{trigger:true})">SHELF</li><li class=col-md-2 onclick="router.navigate('orders',{trigger:true})">ORDERS</li></ul></nav></div><div class="app-container col-xs-10 col-md-offset-1"></div><script type=text/template class=dashboard-view><div class="sign-in-container col-md-4 col-md-offset-4">
+        <![endif]--><div class="alan-arms-pos col-xs-12 bg-primary"><div class=logo-container><a class=home href=#><img src=http://imgur.com/lwT9J0X.png></a></div><nav class="navbar navbar-inverse navbar-static-top" role=navigation><ul class="nav navbar-nav col-md-12"><li class="col-md-2 nav-link" id=scan onclick="router.navigate('scan',{trigger:true})">SCAN</li><li class="col-md-2 nav-link" id=inventory onclick="router.navigate('inventory',{trigger:true})">INVENTORY</li><li class="col-md-2 nav-link" id=order onclick="router.navigate('order',{trigger:true})">PLACE ORDER</li><li class="col-md-2 nav-link" id=customers onclick="router.navigate('customers',{trigger:true})">CUSTOMERS</li><li class="col-md-2 nav-link" id=orders onclick="router.navigate('orders',{trigger:true})">ORDERS</li><li class="col-md-2 nav-link" id=shelf onclick="router.navigate('shelf',{trigger:true})">SHELF</li></ul></nav></div><div class="app-container col-xs-10 col-md-offset-1"></div><script type=text/template class=dashboard-view><div class="sign-in-container col-md-4 col-md-offset-4">
             <img class="col-md-12" src="http://imgur.com/lwT9J0X.png">
             <div><h2>Sign In</h2></div>
                 <div class="form-group sign-in-form">
@@ -21,7 +21,8 @@
                         Scan Item Templates                                                             Scan Item Templates
 
 
-         --><script type=text/template class=scan-item-view><div class="scanning col-md-4 col-md-offset-4">
+
+         --><script type=text/template class=scan-item-view><div class="scanning col-md-3">
             <button type="button" class="start-scanning btn btn-warning">START SCANNING</button>
             <div class="form-group">
                 <label>Item UPC</label>
@@ -38,39 +39,63 @@
                     <button type="button" class="btn btn-info add-item">ADD +</button>
                 </form>
             </div>
-            <div class="col-md-4 scanner-setup">
-                <button class="scanner-setup-button btn btn-default">Scanner Setup</button>
-            </div>
             <div class="display-scanned-item"></div>
-            <div class="add-here"></div>
-            <hr class="odd-hr"/>
-            <div class="scanned-item-counter col-md-3"><p class="col-md-10">Total Items Scanned : </p><p class="scanned-item-total col-md-2">0</p></div>
-            <div class="scanned-item-list col-md-12"></div></script><!-- Manual add item template --><script type=text/template class=manual-item-creation-template><div class="new-item-creation col-md-12">
-            <hr/>
-                <div class="not-found"></div>
-                <label><h4>Please Fill In All Fields Below:</h4>
+            <div class="right-content col-md-9">
+                <div class="add-here"></div>
+                <div class="scanned-item-counter col-md-5"><p class="col-md-10">Total Items Scanned : </p><p class="scanned-item-total col-md-2">0</p></div>
+                <div class="scanned-item-list col-md-12"></div>
+            </div></script><!-- Manual add item template --><script type=text/template class=manual-item-creation-template><div class="new-item-creation col-md-12">
+                <ul class="new-item-nav col-md-11">
+                  <li class="standard-item-creation btn-info">STANDARD</li>
+                  <li class="generic-item-creation">GENERIC</li>
+                  <button type="button" class="btn btn-default no-upc">UPC ON</button> 
+                  <div class="enable-upc"></div>
+                </ul>
+
                 <div class="form-group new-item-form">
                     <label class="manual-input-title col-md-2">Manufacturer</label>
-                    <input class="col-md-3 manual-add-item manufacturer"></input>
+                    <input class="col-md-3 manual-add-item standard manufacturer"></input>
                     <label class="manual-input-title col-md-2">Caliber</label>
-                    <input class="col-md-3 manual-add-item caliber"></input>
+                    <input class="col-md-3 manual-add-item standard caliber"></input>
                     <label class="manual-input-title col-md-2">Cost</label>
-                    <input class="col-md-3 manual-add-item cost"></input>
+                    <input class="col-md-3 manual-add-item standard cost"></input>
                     <label class="manual-input-title col-md-2">Model</label>
-                    <input class="col-md-3 manual-add-item model"></input>
+                    <input class="col-md-3 manual-add-item standard model"></input>
                     <label class="manual-input-title col-md-2">Dealer Price</label>
-                    <input class="col-md-3 manual-add-item dealer-price"></input>
+                    <input class="col-md-3 manual-add-item standard dealer-price"></input>
                     <label class="manual-input-title col-md-2">UPC</label>
-                    <input class="col-md-3 manual-add-item upc"></input>
+                    <input class="col-md-3 manual-add-item standard upc"></input>
                     <label class="manual-input-title col-md-2">MSRP</label>
-                    <input class="col-md-3 manual-add-item msrp"></input>
+                    <input class="col-md-3 manual-add-item standard msrp"></input>
+                    <span class="col-md-5 filler-input"></span>
                     <label class="manual-input-title col-md-2">Description</label>
-                    <textarea class="col-md-3 manual-add-item description"></textarea>
+                    <textarea class="col-md-3 manual-add-item standard description"></textarea>
+                </div>
+                <div class="form-group generic-new-item-form"> 
+                    <label class="manual-input-title col-md-2">Manufacturer</label>
+                    <input class="col-md-3 manual-add-item generic generic-manufacturer"></input>
+                    <label class="manual-input-title col-md-2">Caliber</label>
+                    <input class="col-md-3 manual-add-item generic generic-caliber"></input>
+                    <label class="manual-input-title col-md-2">Cost</label>
+                    <input class="col-md-3 manual-add-item generic generic-cost"></input>
+                    <label class="manual-input-title col-md-2">Model</label>
+                    <input class="col-md-3 manual-add-item generic generic-model"></input>
+                    <label class="manual-input-title col-md-2">Dealer Price</label>
+                    <input class="col-md-3 manual-add-item generic generic-dealer-price"></input>
+                    <label class="manual-input-title col-md-2">UPC</label>
+                    <input class="col-md-3 manual-add-item generic generic-upc"></input>
+                    <label class="manual-input-title col-md-2">MSRP</label>
+                    <input class="col-md-3 manual-add-item generic generic-msrp"></input>
+                    <label class="manual-input-title col-md-2">AMOUNT</label>
+                    <input type="number" class="col-md-3 manual-add-item generic amount" placeholder="#"></input>
+                    <label class="manual-input-title col-md-2">Description</label>
+                    <textarea class="col-md-3 manual-add-item generic generic-description"></textarea>
 
                 </div>
-                </label>
-            <button type="button" class="btn btn-default add-new-item">Submit</button>  
-            <button type="button" class="btn btn-info cancel-new-item-creation">Cancel</button>
+                <div class="col-md-12 creation-button-holder">
+                    <button type="button" class="btn btn-default add-new-item">Submit</button>  
+                    <button type="button" class="btn btn-info cancel-new-item-creation">Cancel</button>
+                </div>
             </div></script><!-- 
 
 
@@ -78,6 +103,8 @@
 
 
          --><script type=text/template class=inventory-list-view><div class="page-title">INVENTORY</div>
+         <button class="full-inventory btn-success btn">Full Stock</button>
+         <button class="full-backorders btn-danger btn">All Backorders</button>
             <div class="manufacturer-names col-md-12">
                 <ul class="manufacturers">
                 </ul>
@@ -87,7 +114,9 @@
             </div>
             <div class="col-md-10 inventory-section">ITEM TYPE</div><div class="inventory-section col-md-1">INVENTORY</div><div class="inventory-section col-md-1">BACKORDER</div>
             <ul class="inventory-list-item-bound col-xs-12"></ul>
-            <ul class="inventory-list-detail-bound"></ul></script><script type=text/template class=inventory-list-item-view><li class="col-md-12"><div class="try product-id col-md-1"></div><div class="try item-type col-md-4"><%=itemType.attributes.Model%></div><div class="try item-description item-type col-md-5"> <%=itemType.attributes.Description%></div><div class="try all-inventory-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div><div class="try backorder-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div></li></script><script type=text/template class=inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><!-- 
+            <ul class="inventory-list-detail-bound"></ul></script><script type=text/template class=inventory-list-item-view><li class="col-md-12"><div class="try product-id col-md-1"></div><div class="try item-type col-md-4"><%=itemType.attributes.Model%></div><div class="try item-description item-type col-md-5"> <%=itemType.attributes.Description%></div><div class="try all-inventory-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div><div class="try backorder-number number-center col-md-1"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div></li></script><script type=text/template class=inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=full-stock-list-template><h2>All Inventory In Stock</h2>
+            <ul class="inventory-list-bound"></ul></script><script type=text/template class=stock-list-instance-template><li class="<%=model.id%>"><span><%=item.Model%></span>, <span><%=item.serialNumber%></span> <button id="<%=model.id%>" class="delete-item btn btn-danger">Delete</button></li></script><script type=text/template class=full-backorder-list-template><h2>Full Backorder List</h2>
+            <ul class="backorder-list-bound"></ul></script><script type=text/template class=backorder-list-instance-template><li class="<%=model.id%>"><span><%=item.itemType%></span><button id="<%=model.id%>" class="delete-item btn btn-danger">Delete</button></li></script><!-- 
 
 
                         Shelf List Templates                                                            Shelf List Templates
@@ -109,12 +138,12 @@
                         Order List Templates                                                        Order List Templates
 
 
-         --><script type=text/template class=order-list-view><div>order List View</div>
+         --><script type=text/template class=order-list-view><div class="page-title">Orders List</div>
             <ul class="order-list-item-bound"></ul>
             <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="order-instance" id="<%=order.id%>">
-                <div>Order : <%=order.attributes.orderNumber%></div>
-                <div>Placed : <%=customer.createdAt%></div>
                 <div>Customer : <%=customer.attributes["Company"]%></div>
+                <div>Placed : <%=customer.createdAt%></div>
+                <button class="btn" onClick="router.navigate('order/<%=order.id%>',{trigger:true})">Order# : <%=order.attributes.orderNumber%></button>
             </li></script><script type=text/template class=order-detail-view><li>
                 <div>Item : <%=itemType.attributes.Model%></div>
                 <div>SerialNum : <%=item.attributes.serialNumber%></div>
@@ -126,9 +155,14 @@
 
 
          --><script type=text/template class=place-order-view><h2 class="page-title">Place Order</h2>
-            <hr/>
+
             <h4 class="page-title order-directions"></h4>
-            <div class="select-customer col-md-12"></div></script><script type=text/template class=customer-by-state-view><div id="<%=index%>" class=" col-md-3 merchant btn-default"><%=merchant.attributes.Company%></div></script><script type=text/template class=customer-order-view><div class="customer-order-detail-top"><%=merchant.attributes.Company%></div>
+            <div class="select-customer col-md-12"></div>
+                        <div class="form-group float-right">
+              <div class="input-group">
+                  <div class="search-by-state"><button class="btn btn-default" onClick="router.navigate('customers',{trigger:true})">Search List</button></div>
+              </div>
+          </div></script><script type=text/template class=customer-by-state-view><div id="<%=index%>" class=" col-md-3 merchant btn-default"><%=merchant.attributes.Company%></div></script><script type=text/template class=customer-order-view><div class="customer-order-detail-top"><%=merchant.attributes.Company%></div>
             <div class="customer-detail-font display-inline"><%=merchant.attributes.Address1%></div>
             <div class="customer-detail-font display-inline"><%=merchant.attributes.City%></div>
             <div class="customer-detail-font customer-order-detail-bottom display-inline"><%=merchant.attributes.State%></div>
@@ -136,7 +170,8 @@
         <div class="app-merchant-bound">
             <div class="accept-merchant btn btn-default">ACCEPT</div>
             <div class="cancel-merchant btn btn-default">CANCEL</div>
-        </div></script><script type=text/template class=order-inventory-list-view><div class="page-title">INVENTORY</div>
+        </div></script><script type=text/template class=order-inventory-list-view><button class="confirm-order-button">Check Out</button>
+            <div class="page-title">INVENTORY</div>
             <div class="manufacturer-names col-md-12">
               <ul class="manufacturers">
                 <li class="manufacturer col-md-2  btn-default btn" name="Advanced Armament Co">ADVANCED ARMAMENT CO</li>
@@ -168,6 +203,17 @@
         <div>
         <div class="item-list-bound">
             <div class="item-instance-bound"></div>
+        <fieldset id="shipping_info" style="display:none;">
+          <p>
+            <label for="shipping">Shipping:</label>
+            <select name="shipping" id="shipping">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="Other">Other(Specify)</option>
+            </select>
+            <input id="other_cost" name="other_cost" type="text" />
+          </p>
+        </fieldset>
         </div>
 
         <div class="item-total-bound">
@@ -200,6 +246,8 @@
 
         <button class="btn btn-info print-sales noPrint">Print Sales Order</button>
         <button class="btn btn-info print-invoice noPrint">Print Invoice</button>
+        <div style="height:100px;"></div>
+        <button id="<%=order%>"class="btn btn-danger void-invoice noPrint">Void Invoice</button>
 
         </div></script><script type=text/template class=customer-info-order-template><div class="customer-info-bound">
             <ul class="left-info">
@@ -227,7 +275,8 @@
                 <li>Invoice Num: <%=order.createdAt.getFullYear()%>-<%=order.attributes.orderNumber%></li>
                 <li>Invoice Date: <%=(order.createdAt.getMonth()+1)%>/<%=order.createdAt.getDate()%>/<%=order.createdAt.getFullYear()%></li>
             </ul>
-        </div></script><script type=text/template class=customer-info-order-items-template><ul class="ordered-item">
+        </div></script><script type=text/template class=customer-info-order-items-template><ul class="ordered-item <%= item.id %>">
+            <button id="<%=item.id%>"class="btn-danger btn void-invoice-item-i noPrint">x</button>
             <li>
                 <span><%= type.get('Manufacturer') %></span>
                 <span> <%= type.get('Model') %></span>
@@ -241,7 +290,8 @@
             <li class="item-dealer-price">
                 <span class="item-price"><%=type.get('DealerPrice')%></span>
             </li>
-            </ul></script><script type=text/template class=customer-info-backorder-template><ul class="backordered-item">
+            </ul></script><script type=text/template class=customer-info-backorder-template><ul class="backordered-item <%= backorder.id %>">
+        <button id="<%= backorder.id %>"class="btn-danger btn void-invoice-item-b noPrint">x</button>
             <li>
                 <span><%= type.get('Manufacturer') %></span>
                 <span> <%= type.get('Model') %></span>
@@ -279,17 +329,17 @@
                                   </div>
                                   <div class="form-group">
                                       <div class="input-group">
-                                        <button class="btn btn-primary reset-search">RESET SEARCH</button>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <div class="input-group">
                                           <div class="create-new-customer"><button class="btn btn-info create-customer">+ ADD CUSTOMER</button></div>
                                       </div>
                                   </div>
                                   <div class="form-group float-right">
                                       <div class="input-group">
                                           <div class="create-new-customer"><button disabled="disabled" class="btn btn-default scanner-setup-button create-customer">Delete</button></div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group float-right">
+                                      <div class="input-group">
+                                          <div class="search-by-state"><button class="btn btn-default" onClick="router.navigate('order',{trigger:true})">Search By State</button></div>
                                       </div>
                                   </div>
                               </form>
@@ -426,6 +476,7 @@
             </div></script><script type=text/template class=customer-list-item><td style="display: block;" class="col-md-offset-1">
                     <div class="customer-container col-md-5">
                         <div class="edit-customer btn btn-default" id="customerModal" data-toggle="modal" data-target="#basicModal" name="<%= customer.Company %>">edit</div>
+                        <div class="add-order btn btn-success" id="<%=model.id%>">order</div>
                         <div class="show company-name"><%=customer.Company%></div>
                         <hr class="customer-division"/>
                         <div class="show company-owner">OWNER: <%= customer.FirstName %> <%=customer.LastName%></div>
@@ -572,7 +623,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script><script src=scripts/c99cd672.main.js></script><!-- <div id="contacts">
+            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js></script><script src=scripts/0c80770a.main.js></script><!-- <div id="contacts">
   <table>
     <thead>
       <tr>
