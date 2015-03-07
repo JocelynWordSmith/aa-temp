@@ -1,6 +1,7 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=styles/c6fb7057.vendor.css><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/d2eea580.main.css><script src=scripts/vendor/d7100892.modernizr.js></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>AAPOS</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=/6df2b309.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=styles/c6fb7057.vendor.css><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/4eba0366.main.css><script src=scripts/vendor/d7100892.modernizr.js></script><body><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]--><div class="alan-arms-pos col-xs-2 bg-primary"><div class=logo-container><nav class="navbar navbar-inverse navbar-static-top navbar-left" role=navigation><ul class="nav navbar-nav col-md-12"><li class="col-md-12 home" id=scan onclick="router.navigate('#',{trigger:true})"><img src="images/oplan-white-gray.png"></li><li class="col-md-12 nav-link" id=scan onclick="router.navigate('scan',{trigger:true})"><i class="nav-icon fa fa-barcode"></i> SCAN</li><li class="col-md-12 nav-link" id=inventory onclick="router.navigate('inventory',{trigger:true})"><i class="nav-icon fa fa-th-list"></i> INVENTORY</li><li class="col-md-12 nav-link" id=customers onclick="router.navigate('customers',{trigger:true})"><i class="nav-icon fa fa-users"></i> CUSTOMERS <span class="badge customers-badge">0</span></li><li class="col-md-12 nav-link" id=orders onclick="router.navigate('orders',{trigger:true})"><i class="nav-icon fa fa-files-o"></i> ORDERS <span class="badge orders-badge">0</span></li><li class="col-md-12 nav-link" id=profile onclick="router.navigate('profile',{trigger:true})"><i class="nav-icon fa fa-user"></i> PROFILE</li><li class="col-md-12 nav-link" id=contact onclick="router.navigate('contact',{trigger:true})"><i class="nav-icon fa fa-question-circle"></i> CONTACT</li><!-- <li class="col-md-2 nav-link" id="shelf" onClick="router.navigate('shelf',{trigger:true})">SHELF</li> --><li class=log-out><span class="glyphicon glyphicon-log-out" onclick="router.navigate('#',{trigger:true})">LOGOUT</span><span class=copyright-text>&#169; OPLAN LLC 2015</span></li></ul></nav></div></div><div class="put-title-here col-xs-10 col-md-offset-2"></div><div class="app-container col-xs-10 col-md-offset-2"></div><div class=progress-bar-body></div><script type=text/template class=page-title><div class="page-title-container">
+                <button class="top-button float-left btn btn-default go-back" onClick="history.go(-1);">BACK</button>
                 <h2 class="page-title"></h2>
                 <hr/>
             </div></script><script type=text/template class=dashboard-view><div class="sign-in-container col-md-6 col-md-offset-3">
@@ -343,17 +344,16 @@
             </div>
             <hr class="odd-hr">
             <ul class="order-list-item-bound"></ul>
-            <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="order-instance col-md-4" id="<%=order.id%>">
+            <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="col-md-6 no-left-padding order-container">
+                <div class="order-instance col-md-12" id="<%=order.id%>"> 
                 <div class="remove-orders-to-print">
                     <div>Order No. : <%=order.attributes.orderNumber%></div>
                     <div>Customer : <%=customer.attributes["Company"]%></div>
                     <div>Placed : <%=order.attributes.date%></div>
-                    <button class="btn" onClick="router.navigate('order/<%=order.id%>',{trigger:true})">INVOICE</button>
-                    <button type="button" id="<%=order.id%>" class="btn btn-success preview-invoice" data-toggle="modal" data-target="#myModal">
-                      PREVIEW
-                    </button>
+                    <button class="btn btn-default" onClick="router.navigate('order/<%=order.id%>',{trigger:true})">INVOICE</button>
                 </div>
                 <div class="preview-modal-holder"></div>
+                </div>
             </li></script><script type=text/template class=order-detail-view><button class="btn order-detail-button" onClick="router.navigate('order',{trigger:true})">BACK
             <li>
                 <div>Item : <%=itemType.attributes.Model%></div>
@@ -424,22 +424,34 @@
         <div class="app-merchant-bound">
             <div class="accept-merchant btn btn-default">ACCEPT</div>
             <div class="cancel-merchant btn btn-default">CANCEL</div>
-        </div></script><script type=text/template class=order-inventory-list-view><button class="confirm-order-button">Check Out</button>
-            <div class="manufacturer-names col-md-12">
-              <ul class="manufacturers">
-                <li class="manufacturer col-md-2  btn-default btn" name="Advanced Armament Co">ADVANCED ARMAMENT CO</li>
-                <li class="manufacturer col-md-2  btn-default btn" name="Silencerco">SILENCERCO</li>
-                <li class="manufacturer col-md-2  btn-default btn" name="Surefire">SUREFIRE</li>
-                <li class="manufacturer col-md-2  btn-default btn" name="GEMTECH">GEMTECH</li>
-                <li class="manufacturer col-md-2  btn-default btn" name="OSS Mission">OSS MISSION</li>
-              </ul>
+        </div></script><script type=text/template class=order-inventory-list-view><hr class="odd-hr order-hr">
+        <button class="confirm-order-button btn btn-default col-md-1">Check Out</button>
+            <div class="manufacturer-names no-padding col-md-12">
+              <div class="search-it-all col-md-2">
+                  <button class="search-all-inventory form-control btn btn-success">SEARCH ALL</button>
+              </div>
+              <div class="col-md-3 order-manufacturer-select">
+                  <select class="manufacturers form-control">
+                  </select>
+              </div>
             </div>
-            <div class="manufacturer-title col-md-12">
-                <div class='center-number'></div>
+            <div id="inventory-search" class="order-list-items">
+            <div class="input-group col-md-4 search-inv">
+              <div class="input-group-addon">Search</div>
+              <input class="form-control search search-inventory">
             </div>
-            <div class="col-md-6 inventory-section">ITEM TYPE</div><div class="inventory-section col-md-3">INVENTORY</div><div class="inventory-section col-md-3">BACKORDER</div>
-            <ul class="inventory-list-item-bound col-xs-12"></ul>
-            <ul class="inventory-list-detail-bound"></ul></script><script type=text/template class=order-inventory-list-item-view><li class="col-md-12"><div class="product-id col-md-1"><button class="order-item" value="<%=itemType.id%>"><%=itemType.attributes.DealerPrice%></button></div><div class="item-type col-md-5"> <%=itemType.attributes.Model%></div><div class="all-inventory-number number-center col-md-3"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div><div class="backorder-number number-center col-md-3"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div></li></script><script type=text/template class=order-inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=order-shopping-cart-view><div class="shopping-cart-item btn btn-info"><span><%=item[2]%></span></div></script><script type=text/template class=confirm-order-view><div class="top-info-bound">
+            <div class="inventory-sections">
+                <div class="col-md-8 inventory-section">ITEM TYPE</div><div class="inventory-section center-text col-md-2">INVENTORY</div><div class="inventory-section center-text col-md-2">BACKORDER</div>
+            </div>
+            <ul class="list"></ul>
+            </div></script><script type=text/template class=order-inventory-list-item-view><li class="col-md-12">
+                <div class="product-id col-md-1">
+                    <button class="order-item btn btn-default" value="<%=itemType.id%>"><%=itemType.attributes.DealerPrice%></button>
+                </div>
+                <div class="item-type col-md-7"> <%=itemType.attributes.Model%></div>
+                <div class="all-inventory-number number-center col-md-2"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div>
+                <div class="backorder-number number-center col-md-2"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div>
+            </li></script><script type=text/template class=order-inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=order-shopping-cart-view><div class="shopping-cart-item btn btn-success"><span><%=item[2]%></span></div></script><script type=text/template class=confirm-order-view><div class="top-info-bound">
             <div class="merchant-info">
                 <div class="bold"><%=customer.Company%></div>
                 <div><span><%=customer.FirstName%></span> <span><%=customer.LastName%></div>
@@ -500,7 +512,6 @@
         <button class="btn btn-info print-sales noPrint">Print Sales Order</button>
         <button class="btn btn-info print-invoice noPrint">Print Invoice</button>
         <div style="height:100px;"></div>
-        <button id="<%=order%>"class="btn btn-danger void-invoice noPrint">Void Invoice</button>
 
         </div></script><script type=text/template class=customer-info-order-template><div class="customer-info-bound">
             <ul class="left-info">
@@ -966,5 +977,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview'); --><!-- ADD SCRIPT TAG HERE --><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=http://listjs.com/no-cdn/list.pagination.js></script><script src=scripts/08cf1b2b.main.js></script><!-- <li class="col-md-12 nav-link" id="order" onClick="router.navigate('order',{trigger:true})"><i class="nav-icon fa fa-file-o"></i> PLACE ORDER
-</li> --><!-- FILTERS FROM INVENTORY PAGE -->
+            ga('create','UA-XXXXX-X');ga('send','pageview'); --><!-- ADD SCRIPT TAG HERE --><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=http://listjs.com/no-cdn/list.pagination.js></script><script src=scripts/6410393c.main.js></script><!-- <li class="col-md-12 nav-link" id="order" onClick="router.navigate('order',{trigger:true})"><i class="nav-icon fa fa-file-o"></i> PLACE ORDER
+</li> --><!-- FILTERS FROM INVENTORY PAGE --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Advanced Armament Co">ADVANCED ARMAMENT CO</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Silencerco">SILENCERCO</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Surefire">SUREFIRE</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="GEMTECH">GEMTECH</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="OSS Mission">OSS MISSION</li> --><!-- PREVIEW INVOICE BUTTON --><!-- <button type="button" id="<%=order.id%>" class="btn btn-success preview-invoice" data-toggle="modal" data-target="#myModal">
+  PREVIEW
+</button> -->
