@@ -1,6 +1,509 @@
-<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>OPLAN</title><meta name=description content=""><meta name=viewport content="width=device-width"><link rel="shortcut icon" href=19326760.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=styles/c6fb7057.vendor.css><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/3af11513.main.css><script src=scripts/vendor/d7100892.modernizr.js></script><body><!--[if lt IE 10]>
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><title>OPLAN</title><meta name=description content=""><!-- <meta name="viewport" content="width=device-width"> --><meta name=viewport content="width=device-width, initial-scale=1"><link rel="shortcut icon" href=19326760.favicon.ico><!-- Place favicon.ico and apple-touch-icon'.png in the root directory --><link rel=stylesheet href=styles/c6fb7057.vendor.css><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css><link rel=stylesheet href=styles/85a828c0.main.css><script src=http://d3js.org/d3.v3.min.js charset=utf-8></script><script type=text/javascript src=https://www.google.com/jsapi></script><script src=scripts/vendor/d7100892.modernizr.js></script><body><script type=text/javascript>function logOut() {
+                Parse.User.logOut();
+                router.navigate('#',{trigger:true});
+            }</script><div class=print-invoice-clone></div><!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]--><div class="alan-arms-pos col-xs-2 bg-primary"><div class=logo-container><nav class="navbar navbar-inverse navbar-static-top navbar-left" role=navigation><ul class="nav navbar-nav col-md-12"><li class="col-md-12 home" id=scan onclick="router.navigate('#',{trigger:true})"><img src=images/OPLAN-white-gray.png></li><li class="col-md-12 nav-link" id=scan onclick="router.navigate('scan',{trigger:true})"><i class="nav-icon fa fa-barcode"></i> SCAN</li><li class="col-md-12 nav-link" id=inventory onclick="router.navigate('inventory',{trigger:true})"><i class="nav-icon fa fa-th-list"></i> INVENTORY</li><li class="col-md-12 nav-link" id=customers onclick="router.navigate('customers',{trigger:true})"><i class="nav-icon fa fa-users"></i> CUSTOMERS <span class="badge customers-badge">0</span></li><li class="col-md-12 nav-link" id=orders onclick="router.navigate('orders',{trigger:true})"><i class="nav-icon fa fa-files-o"></i> ORDERS <span class="badge orders-badge">0</span></li><li class="col-md-12 nav-link" id=profile onclick="router.navigate('profile',{trigger:true})"><i class="nav-icon fa fa-user"></i> PROFILE</li><li class="col-md-12 nav-link" id=analytics onclick="router.navigate('contact',{trigger:true})"><i class="nav-icon fa fa-area-chart"></i> ANALYTICS</li><li class="col-md-12 nav-link" id=contact onclick="router.navigate('contact',{trigger:true})"><i class="nav-icon fa fa-question-circle"></i> CONTACT</li><!-- <li class="col-md-2 nav-link" id="shelf" onClick="router.navigate('shelf',{trigger:true})">SHELF</li> --><li class=log-out><span class="glyphicon glyphicon-log-out" onclick="router.navigate('#',{trigger:true})">LOGOUT</span><span class=copyright-text>&#169; OPLAN LLC 2015</span></li></ul></nav></div></div><div class="landing-page-here col-md-12"></div><div class="put-title-here col-xs-10 col-md-offset-2"></div><div class="app-container col-xs-10 col-md-offset-2"></div><script type=text/template class=loading-cover-template><div class="loading-cover">
+        <![endif]--><div class="landing-page-here col-md-12"></div><!--                 <div class="one-third features-container">
+                    <div class="col-md-8 col-md-offset-2 center-text underline-it">
+                        <h2 class="text-bold col-md-10">
+                            <span class="col-md-5 center-text">FEATURES <i class="fa fa-list"></i></span>
+                        </h2>
+                        <h2 class="col-md-2"><i class="fa fa-chevron-down"></i></h2>                    
+                    </div>
+                </div>
+                <div class="features-detail col-md-12"></div>
+                <div class="one-third col-md-12 about-us-container">
+                    <div class="col-md-8 col-md-offset-2 center-text underline-it">
+                        <h2 class="text-bold col-md-10">
+                            <span class="col-md-5 center-text">ABOUT US <i class="fa fa-users"></i></span>
+                        </h2>
+                        <h2 class="col-md-2"><i class="fa fa-chevron-down"></i></h2>
+                    </div>
+                </div>
+                <div class="one-third col-md-12 pricing-container">
+                    <div class="col-md-8 col-md-offset-2 center-text underline-it">
+                        <h2 class="text-bold col-md-10">
+                            <span class="col-md-5 center-text">PRICING <i class="fa fa-money"></i></span>
+                        </h2>
+                        <h2 class="col-md-2"><i class="fa fa-chevron-down"></i></h2>
+                    </div>
+                </div> --><div class="alan-arms-pos col-xs-2 bg-primary"></div><script type=text/template class=navbar-template><div class="logo-container">
+                <nav class="navbar navbar-inverse navbar-static-top navbar-left noPrint" role="navigation">
+                    <ul class="nav navbar-nav col-md-12 noPrint">
+                        <li class="col-md-12 home" id="scan" onClick="router.navigate('#',{trigger:true})"><img src="images/OPLAN-white-gray.png"></a></li>
+                        <li class="col-md-12 nav-link" id="scan" onClick="router.navigate('scan',{trigger:true})">
+                            <i class="nav-icon fa fa-barcode"></i> SCAN
+                        </li>
+                        <li class="col-md-12 nav-link" id="inventory" onClick="router.navigate('inventory',{trigger:true})">
+                            <i class="nav-icon fa fa-th-list"></i> INVENTORY
+                        </li>
+                        <li class="col-md-12 nav-link" id="customers" onClick="router.navigate('customers',{trigger:true})"><i class="nav-icon fa fa-users"></i> CUSTOMERS <span class="badge customers-badge" >0</span>
+                        </li>
+                        <li class="col-md-12 nav-link" id="orders" onClick="router.navigate('orders',{trigger:true})">
+                            <i class="nav-icon fa fa-files-o"></i> ORDERS <span class="badge orders-badge">0</span>
+                        </li>
+                        <li class="col-md-12 nav-link" id="profile" onClick="router.navigate('profile',{trigger:true})">
+                            <i class="nav-icon fa fa-user"></i> PROFILE
+                        </li>
+                        <li class="col-md-12 nav-link" id="contact" onClick="router.navigate('contact',{trigger:true})">
+                            <i class="nav-icon fa fa-question-circle"></i> CONTACT
+                        </li>
+                        <!-- <li class="col-md-2 nav-link" id="shelf" onClick="router.navigate('shelf',{trigger:true})">SHELF</li> -->
+                        <li class="log-out">
+                            <span class="glyphicon glyphicon-log-out" onCLick="logOut()">LOGOUT</span>
+                            </br>
+                            <span class="copyright-text">&#169; OPLAN LLC 2015</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div></script><div class="put-title-here col-xs-10 col-md-offset-2"></div><div class="app-container col-xs-10 col-md-offset-2 noPrint"></div><script type=text/template class=landing-page-template><nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid no-padding">
+                    <div class="navbar-header col-md-12 no-padding">
+                        <div class="left-side col-md-6 no-padding">
+                            <div class="left-div"></div>
+                        </div>
+                        <div class="right-side col-md-6 no-padding">
+                            <div class="right-div"></div>
+                        </div>
+                        <div class="landing-sign-in">SIGN IN</div>
+                        <div class="image-container">
+                            <img class="landing-logo" src="images/1a286303.title-option-two.png"/>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="landing-page-section-one col-md-12">
+            <div class="background-img"></div>
+                <div class="section-one-logo-fade">
+                    <div class="section-one-text">
+                        <div class="center-me col-md-8 col-md-offset-2">
+                            <div class="body-text-two">You take care of your customers.</div>
+                            <div class="body-text"></div>
+                            <img class="center-text" src="images/6eba8974.header-logo.png"/>
+                        </div>
+                        <img class="center-text hero-img" style="width:22%;text-align:center !important;" src="images/e0a421c3.white-again.png"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 landing-page-section-too">
+                <div class="left-side col-md-6 no-padding">
+                    <div class="left-div"></div>
+                </div>
+                <div class="right-side col-md-6 no-padding">
+                    <div class="right-div"></div>
+                </div>
+                <div class="col-md-3 step-one">
+                    <div class="step-number-container col-md-12 no-padding
+                    center-text">
+                        <div class="step-number">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <div class="step-text-container col-md-12 no-padding">
+                        <h2 class="step-title-text">It’s an inventory tool</br>that saves you time</h2>
+                        <p class="step-text">We make it easy to manage the items you have, the items you sell, and customers you sell to. Once you scan in your inventory, we manage sales, serial numbers, and cost vs profit numbers of your transactions. Don’t worry, its all private.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 step-two">
+                    <div class="step-number-container col-md-12 no-padding
+                    center-text">
+                        <div class="step-number">
+                            <i class="fa fa-files-o"></i>
+                        </div>
+                    </div>
+                    <div class="step-text-container col-md-12 no-padding">
+                        <h2 class="step-title-text">It’s ATF compliant records keeping software</h2>
+                        <p class="step-text">We look after inventory and sales data, keeping you from needing to write everything down, ormaking sure you wrote it down correctly. And if the ATF ever requires your full records, just let us know and we’ll give them to you, and no one else.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 step-three">
+                    <div class="step-number-container col-md-12 no-padding
+                    center-text">
+                        <div class="step-number">
+                            <i class="fa fa-bar-chart"></i>
+                        </div>
+                    </div>
+                    <div class="step-text-container col-md-12 no-padding">
+                        <h2 class="step-title-text">It keeps track of what you have sold, and what is coming in</h2>
+                        <p class="step-text">We tell you when a backordered item has been scanned in, who to send it to, and help you manage what to order in the future.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 step-four">
+                    <div class="step-number-container col-md-12 no-padding
+                    center-text">
+                        <div class="step-number">
+                            <i class="fa fa-file-image-o"></i>
+                        </div>
+                    </div>
+                    <div class="step-text-container col-md-12 no-padding">
+                        <h2 class="step-title-text">Every time you make a</br>sale, it generates a sales</br>order and invoice</h2>
+                        <p class="step-text">WYou can print it off, email it to the customer, or save it in your records; you can comeback to it at any time, for any past order.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="landing-page-section-two col-md-12">
+                <div class="center-text step-title">
+                    <div class="inline-block left-step-title col-md-1 col-md-offset-4"></div>
+                    <div class="inline-block how-it-works col-md-2">HOW IT WORKS</div>
+                    <div class="inline-block right-step-title col-md-1"></div>
+                </div>
+
+                <div class="step-list">
+                    <ul class="col-md-12">
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">SCANNING</span>
+                                </div>
+                                <div class="mid-transparency">
+                                </div>
+                                <div class="bottom-textbox">
+                                    <p>Burn your bound-book. We handle all of your items, manufacturer’s info, prices, andserial numbers once your inventory comes in the door. No more writing by hand, no more stacks of paper records.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <img src="images/07707433.scan-bg.png"/>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">INVENTORY</span>
+                                </div>
+                                <div class="mid-transparency">
+                                </div>
+                                <div class="bottom-textbox">
+                                    <p>More than just showing you what you do have, we keep up with what you don’t have and how many more you need to order. And when something that’s already backordered comes through the door, we let you know.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <img src="images/0ba1ac34.inventory-bg.png"/>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">CUSTOMERS</span>
+                                </div>
+                                <div class="mid-transparency">
+                                </div>
+                                <div class="bottom-textbox">
+                                    <p>All of your customer info in one place. Easy to update when email or phone numberschange, and we keep track of what each shop bought, to make it easy for you to anticipate what to keep in stock for them.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <img src="images/00879899.customers-bg.png"/>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="col-md-12">
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">ORDERS</span>
+                                </div>
+                                <div class="mid-transparency">
+                                </div>
+                                <div class="bottom-textbox">
+                                    <p>Keep track of what orders are still awaiting items to come in, which ones are ready to ship, and which ones are headed out the door.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <img src="images/e721d756.orders-bg.png"/>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">INVOICES</span>
+                                </div>
+                                <div class="mid-transparency">
+                                </div>
+                                <div class="bottom-textbox">
+                                    <p>We manage your sales as they happen, and put all the relevant information into a sales order for you to print off with the order when it ships, email to the customer, or save for your records.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <img src="images/05a4b577.invoice-bg.png"/>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="step-overlay">
+                                <div class="top-cover">
+                                    <span class="overlay-text">YET TO COME</span>
+                                </div>
+                                <div class="bottom-textbox yet-to-come">
+                                    <p>Want a feature that you don’t see? Send us an email or sign up for the early access subscription. We are growing quickly and rolling out more features as we go, so keep in touch if there’s something you want to see.</br></br><span class="float-right">- OPLAN Team</span></p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="landing-page-section-three col-md-12">
+            <div class="left-side col-md-6 no-padding">
+                <div class="left-div"></div>
+            </div>
+            <div class="right-side col-md-6 no-padding">
+                <div class="right-div"></div>
+            </div>
+                <div class="customer-quote-section col-md-8 col-md-offset-2 center-text">
+                    <p>Our list of out-of-the-box manufacturers is constantly growing!</br>Quickly and easily add and edit any manufacturer or product you need!</p>
+                    <ul class="brand-logo-list">
+                        <li class="brand-logo">
+                            <img src="images/fa7ac636.silencerco-logo.png"/>
+                        </li>
+                        <li class="brand-logo">
+                            <img src="images/edee7a4b.aac-logo.png"/>
+                        </li>
+                        <li class="brand-logo">
+                            <img src="images/93da47eb.gemtech-logo.png"/>
+                        </li>
+                        <li class="brand-logo surefire">
+                            <img src="images/bf3cbb1f.surefire-logo.png"/>
+                        </li>
+                        <li class="brand-logo">
+                            <img src="images/e6f59e24.griffin-armament-logo.png"/>
+                        </li>
+                        <li class="brand-logo">
+                            <img src="images/86b3bbde.dead-air-logo.png"/>
+                        </li>
+                    <div class="quote-text">"OPLAN has saved us tens of thousands of dollars and inumerable hours of inventory tracking!"</div>
+                    <div class="quote-author">~ Randall (Allen Arms Tactical)</div>
+                </div>
+            </div>
+
+            <div class="center-text step-title col-md-12">
+                <div class="inline-block left-step-title col-md-1 col-md-offset-4"></div>
+                <div class="inline-block how-it-works col-md-2">PRICING</div>
+                <div class="inline-block right-step-title col-md-1"></div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-2 features-container">
+                <div class="pricing-header">
+                    <h2 class="price-tag">$</h2>
+                    <h2 class="price">200</h2>
+                    <p>/mo *</p>
+                </div>
+                <div class="pricing-body">
+                    <h4>BETA TESTING</h4>
+                    <div class="pricing-body-text">
+                        <ul class="pricing-list col-md-10 col-md-offset-1">
+                            <li><i class="fa fa-check"></i> Easy setup</li>
+                            <li><i class="fa fa-check"></i> Scan in inventory (hardware included *)</li>
+                            <li><i class="fa fa-check"></i> Manage customers</li>
+                            <li><i class="fa fa-check"></i> Complete ordering</li>
+                            <li><i class="fa fa-check"></i> Inventory number tracking</li>
+                            <li><i class="fa fa-check"></i> Ability to access and use from anywhere</li>
+                            <li><i class="fa fa-check"></i> 10 hours of customer support</li>
+                            <li><i class="fa fa-check"></i> 100% ATF compliant</li>
+                        </ul>
+                    </div>
+                    <p>* One time additional $200 fee for scanner hardware</br>* Bug reporting and questionnaire fulfillment.</p>
+                </div>
+            </div>
+                <div class="col-md-4 features-container">
+                    <div class="pricing-header">
+                        <h2 class="price-tag">$</h2>
+                        <h2 class="price">400</h2>
+                        <p>/mo *</p>
+                    </div>
+                    <div class="pricing-body">
+                        <h4>BASIC PLAN</h4>
+                        <div class="pricing-body-text">
+                            <ul class="pricing-list col-md-10 col-md-offset-1">
+                                <li><i class="fa fa-check"></i> Easy setup</li>
+                                <li><i class="fa fa-check"></i> Scan in inventory (hardware included *)</li>
+                                <li><i class="fa fa-check"></i> Manage customers</li>
+                                <li><i class="fa fa-check"></i> Complete ordering</li>
+                                <li><i class="fa fa-check"></i> Inventory number tracking</li>
+                                <li><i class="fa fa-check"></i> Ability to access and use from anywhere</li>
+                                <li><i class="fa fa-check"></i> 10 hours of customer support</li>
+                                <li><i class="fa fa-check"></i> 100% ATF compliant</li>
+                            </ul>
+                        </div>
+                        <p>* One time additional $200 fee for scanner hardware</p>
+                    </div>
+                </div>
+
+                <div class="center-text step-title col-md-12">
+                    <div class="inline-block left-step-title col-md-1 col-md-offset-4"></div>
+                    <div class="inline-block how-it-works col-md-2">WHO WE ARE</div>
+                    <div class="inline-block right-step-title col-md-1"></div>
+                </div>
+                <div class="landing-page-section-five">
+                <div class="col-md-10 col-md-offset-1 features-container">
+                    <div class="founder-container">
+                        <div class="col-md-4 merritt">
+                            <div class="founder-pic center-text">
+                                <img class="headshot" src="images/461d10f9.merritt-pic.jpg"/>
+                                <h4>CHRIS MERRITT</h4>
+                                <p>Chris is a huge gun enthusiast.<br/>He comes with an amazing pedigree in project management and running massive tech teams around the globe.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 jeffords">
+                            <div class="founder-pic center-text">
+                                <img class="headshot" src="images/719427bd.jeffords-pic.png"/>
+                                <h4>DANIEL JEFFORDS</h4>
+                                <p>Daniel is an Air Force Reserve member with a growing passion in the firearms industry. He runs the design and development.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 joshua">
+                            <div class="founder-pic center-text">
+                                <img class="headshot" src="images/7df28f73.joshua-pic.png"/>
+                                <h4>JOSHUA SMITH</h4>
+                                <p>Joshua is a former Army combat engineer. He&#39;s the brains behind the data and making sure the tools we use are solid and reliable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="footer col-md-12">
+                    <div class="left-side col-md-6 no-padding">
+                        <div class="left-div"></div>
+                    </div>
+                    <div class="right-side col-md-6 no-padding">
+                        <div class="right-div"></div>
+                    </div>
+                    <ul class="footer-list col-md-6">
+                        <li class="footer-list-item col-md-11 col-md-offset-1">
+                            EMAIL: <a href="mailto:support@oplan.com?subject=OPLAN query">support@oplan.com</a>
+                        </li>
+                        <li class="footer-list-item col-md-11 col-md-offset-1">
+                            Follow us on Instagram @OPLAN.CO
+                        </li>
+                        <li class="footer-list-item col-md-11 col-md-offset-1">
+                            CALL US: 1(864)640-5321
+                        </li>
+                        <li class="footer-list-item col-md-11 col-md-offset-1">
+                            &#169; OPLAN LLC 2015
+                        </li>
+                    </ul>
+                    <div class="col-md-6 contact-us-inputs">
+                        <ul class="contact-us-list col-md-10 col-md-offset-1">
+                            <li class="name-container">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">YOUR NAME</label>
+                                    <input class="form-control contact-input" id="name-input" placeholder="Name">
+                                </div>
+                            </li>
+                            <li class="email-container">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">YOUR EMAIL</label>
+                                  <input type="email" class="form-control contact-input" id="email-input" placeholder="Email">
+                              </div>
+                            </li>
+                            <li class="message-container">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">YOUR MESSAGE</label>
+                                    <textarea type="email" class="form-control contact-input" id="message-input" placeholder="Message..."/>
+                                </div>
+                            </li>
+                            <li class="submit-message-container">
+                                <button class="btn btn-default submit-message col-md-8 col-md-offset-2" id="submit-message">CONTACT US</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div></script><script type=text/template class=features-option-template><div class="col-md-10 col-md-offset-1 features-container">
+                <ul class="features-list col-md-12">
+                    <li class="bullet-point-list">We worry about ATF guidelines so you don&#39;t have to.</li>
+                    <li class="bullet-point-list">Up-to-date UPCs and price sheets direct from the manufacturers.
+                        <ul class="bullet-point-list">
+                            <li class="col-md-2 no-padding">AAC</li>
+                            <li class="col-md-2 no-padding">Silencerco</li>
+                            <li class="col-md-2 no-padding">Griffin</li>
+                            <li class="col-md-2 no-padding">GEMTECH</li>
+                            <li class="col-md-2 no-padding">Surefire</li>
+                            <li class="col-md-2 no-padding">Dead Air</li>
+                        </ul>
+                    </li>
+                    <li class="bullet-point-list">We&#39;ll alert you when you have orders than can be fulfilled.</li>
+                    <li class="bullet-point-list">Let us handle your inventory numbers and tracking for you.</li>
+                    <li class="bullet-point-list">Simple and easy downloads of all your sales for easy profit tracking.</li>
+
+
+                </ul>
+            </div></script><script type=text/template class=about-us-template><div class="col-md-10 col-md-offset-1 features-container">
+                <div class="founder-container">
+                    <div class="col-md-4 merritt">
+                        <div class="founder-pic center-text">
+                            <img class="headshot" src="images/461d10f9.merritt-pic.jpg"/>
+                            <h4>CHRIS MERRITT</h4>
+                            <p>Chris is a huge gun enthusiast.<br/>He comes with an amazing pedigree in project management and running massive tech teams around the globe.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 jeffords">
+                        <div class="founder-pic center-text">
+                            <img class="headshot" src="images/719427bd.jeffords-pic.png"/>
+                            <h4>DANIEL JEFFORDS</h4>
+                            <p>Daniel is an Air Force Reserve member with a growing passion in the firearms industry. He runs the design and development.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 joshua">
+                        <div class="founder-pic center-text">
+                            <img class="headshot" src="images/7df28f73.joshua-pic.png"/>
+                            <h4>JOSHUA SMITH</h4>
+                            <p>Joshua is a former Army (insert). He&#39;s the brains behind the data and making sure the tools we use are solid and reliable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div></script><script type=text/template class=pricing-option-template><div class="col-md-4 col-md-offset-2 features-container">
+            <div class="pricing-header">
+                <h2 class="price-tag">$</h2>
+                <h2 class="price">200</h2>
+                <p>/mo *</p>
+            </div>
+            <div class="pricing-body">
+                <h4>BETA TESTING</h4>
+                <div class="pricing-body-text">
+                    <ul class="pricing-list col-md-10 col-md-offset-1">
+                        <li>Easy setup</li>
+                        <li>Scan in inventory (hardware included *)</li>
+                        <li>Manage customers</li>
+                        <li>Complete ordering</li>
+                        <li>Inventory number tracking</li>
+                        <li>Ability to access and use from anywhere</li>
+                        <li>10 hours of customer support</li>
+                        <li>100% ATF compliant</li>
+                    </ul>
+                    <p>* One time additional $200 fee for scanner hardware</br>Bug reporting and questionnaire fulfillment.</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4 features-container">
+                <div class="pricing-header">
+                    <h2 class="price-tag">$</h2>
+                    <h2 class="price">400</h2>
+                    <p>/mo *</p>
+                </div>
+                <div class="pricing-body">
+                    <h4>BASIC PLAN</h4>
+                    <div class="pricing-body-text">
+                        <ul class="pricing-list col-md-10 col-md-offset-1">
+                            <li>Easy setup</li>
+                            <li>Scan in inventory (hardware included *)</li>
+                            <li>Manage customers</li>
+                            <li>Complete ordering</li>
+                            <li>Inventory number tracking</li>
+                            <li>Ability to access and use from anywhere</li>
+                            <li>10 hours of customer support</li>
+                            <li>100% ATF compliant</li>
+                        </ul>
+                        <p>* One time additional $200 fee for scanner hardware</p>
+                    </div>
+                </div>
+            </div></script><script type=text/template class=loading-cover-template><div class="loading-cover">
                 <h2 class="loading-text center-text">LOADING...</h2>
             </div>
             <div class="chamber-loader spin"></div></script><div class=progress-bar-body></div><script type=text/template class=page-title><div class="page-title-container">
@@ -25,8 +528,6 @@
             </div>
             <div class="alert alert-danger col-md-6 col-md-offset-3" role="alert">
                 <button type="button" class="close closeAlert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Oh snap!<span class="alert-link">Make sure you filled out everything </span>and try submitting again.
-            </div></script><script type=text/template class=landing-page-template><div class="top-landing-section col-md-12">
-                <h1> Hello World! </h1>
             </div></script><!-- 
 
 
@@ -106,6 +607,7 @@
                 <form role="form">
                     <button type="button" class="btn btn-default new-item-submit">Submit</button>  
                     <button type="button" class="btn btn-default toggle-scan-type">GENERIC</button>
+                    <a tabindex="0" class="" role="button" data-toggle="popover" data-placement="bottom" data-trigger="hover" title="Generic VS Serialized" data-content="Click to swap between scanning NFA serial number tracked inventory items and bulk non-serialized items! Click start scanning and scan away!"><i class="fa fa-question-circle"></i></a>
                 </form>
                 </div>
                 <div class="col-md-12 generic scan no-left-padding toggled-scanner-off scan-option on-display">
@@ -122,14 +624,16 @@
                     </div>
                         <form role="form">
                             <button type="button" class="btn btn-default new-generic-item-submit">Submit</button> 
-                            <button type="button" class="btn btn-default toggle-scan-type">SCAN</button> 
+                            <button type="button" class="btn btn-default toggle-scan-type">SERIALIZED</button> 
+                            <a tabindex="0" class="" role="button" data-toggle="popover" data-placement="bottom" data-trigger="hover" title="Generic VS Serialized" data-content="Click to swap between scanning NFA serial number tracked inventory items and bulk non-serialized items! Click start scanning and scan away!"><i class="fa fa-question-circle"></i></a>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 no-left-padding">
+            <div class="col-md-12 no-left-padding add-button-container">
                 <form role="form">
-                    <button type="button" class="btn btn-info add-item">ADD +</button>
+                    <button type="button" class="btn btn-default add-item">CREATE</button>
+                    <a tabindex="0" class="" role="button" data-toggle="popover" data-placement="right" data-trigger="hover" title="Create New Items" data-content="Item you're trying to scan doesn't exist? Add it here!"><i class="fa fa-question-circle"></i></a>
                 </form>
             </div>
             <hr class="odd-hr">
@@ -137,6 +641,7 @@
             <div class="right-content col-md-12">
                 <div class="add-here"></div>
                 <div class="scanned-item-counter col-md-5"><p class="col-md-10">Total Items Scanned : </p><p class="scanned-item-total col-md-2">0</p></div>
+                <a tabindex="0" class="" role="button" data-toggle="popover" data-placement="right" data-trigger="hover" title="Total Items Scanned" data-content="Track the number of items you've scanned to easily check it against a manifest!"><i class="fa fa-question-circle"></i></a>
                 <div class="scanned-item-list col-md-12"></div>
             </div></script><!-- Manual add item template --><script type=text/template class=manual-item-creation-template><div class="new-item-creation col-md-12">
                 <ul class="new-item-nav col-md-11">
@@ -153,23 +658,43 @@
                             <option class="non-select">Select Manufacturer</option>
                         </select>
                     </div>
-                    <label class="manual-input-title col-md-2">Manufacturer</label>
-                    <input class="col-md-3 manual-add-item standard manufacturer"></input>
-                    <label class="manual-input-title col-md-2">Caliber</label>
-                    <input class="col-md-3 manual-add-item standard caliber"></input>
-                    <label class="manual-input-title col-md-2">Cost</label>
-                    <input class="col-md-3 manual-add-item standard cost"></input>
-                    <label class="manual-input-title col-md-2">Model</label>
-                    <input class="col-md-3 manual-add-item standard model"></input>
-                    <label class="manual-input-title col-md-2">Dealer Price</label>
-                    <input class="col-md-3 manual-add-item standard dealer-price"></input>
-                    <label class="manual-input-title col-md-2">UPC</label>
-                    <input class="col-md-3 manual-add-item standard upc"></input>
-                    <label class="manual-input-title col-md-2">MSRP</label>
-                    <input class="col-md-3 manual-add-item standard msrp"></input>
-                    <span class="col-md-5 filler-input"></span>
-                    <label class="manual-input-title col-md-2">Description</label>
-                    <textarea class="col-md-3 manual-add-item standard description"></textarea>
+                    <ul>
+                        <li>
+                            <label class="manual-input-title col-md-2">Manufacturer</label>
+                            <input class="col-md-3 manual-add-item standard manufacturer" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Caliber</label>
+                            <input class="col-md-3 manual-add-item standard caliber"></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Cost</label>
+                            <input class="col-md-3 manual-add-item standard cost" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Model</label>
+                            <input class="col-md-3 manual-add-item standard model" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Dealer Price</label>
+                            <input class="col-md-3 manual-add-item standard dealer-price" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">UPC</label>
+                            <input class="col-md-3 manual-add-item standard upc" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">MSRP</label>
+                            <input class="col-md-3 manual-add-item standard msrp" required></input>
+                        </li>
+                        <li>
+                            <span class="col-md-5 filler-input"></span>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Description</label>
+                            <textarea class="col-md-3 manual-add-item standard description"></textarea>
+                        </li>
+                    </ul>
                 </div>
                 <div class="form-group generic-new-item-form"> 
                     <div class="col-md-12" style="padding-left:0px;">
@@ -178,24 +703,43 @@
                             <option class="non-select">Select Manufacturer</option>
                         </select>
                     </div>
-                    <label class="manual-input-title col-md-2">Manufacturer</label>
-                    <input class="col-md-3 manual-add-item standard generic-manufacturers"></input>
-                    <label class="manual-input-title col-md-2">Caliber</label>
-                    <input class="col-md-3 manual-add-item generic generic-caliber"></input>
-                    <label class="manual-input-title col-md-2">Cost</label>
-                    <input class="col-md-3 manual-add-item generic generic-cost"></input>
-                    <label class="manual-input-title col-md-2">Model</label>
-                    <input class="col-md-3 manual-add-item generic generic-model"></input>
-                    <label class="manual-input-title col-md-2">Dealer Price</label>
-                    <input class="col-md-3 manual-add-item generic generic-dealer-price"></input>
-                    <label class="manual-input-title col-md-2">UPC</label>
-                    <input class="col-md-3 manual-add-item generic generic-upc"></input>
-                    <label class="manual-input-title col-md-2">MSRP</label>
-                    <input class="col-md-3 manual-add-item generic generic-msrp"></input>
-                    <label class="manual-input-title col-md-2">QUANTITY</label>
-                    <input type="number" class="col-md-3 manual-add-item generic amount" placeholder="#"></input>
-                    <label class="manual-input-title col-md-2">Description</label>
-                    <textarea class="col-md-3 manual-add-item generic generic-description"></textarea>
+                    <ul>
+                        <li>
+                            <label class="manual-input-title col-md-2">Manufacturer</label>
+                            <input class="col-md-3 manual-add-item standard generic-manufacturers" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Caliber</label>
+                            <input class="col-md-3 manual-add-item generic generic-caliber"></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Cost</label>
+                            <input class="col-md-3 manual-add-item generic generic-cost" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Model</label>
+                            <input class="col-md-3 manual-add-item generic generic-model" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Dealer Price</label>
+                            <input class="col-md-3 manual-add-item generic generic-dealer-price" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">UPC</label>
+                            <input class="col-md-3 manual-add-item generic generic-upc" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">MSRP</label>
+                            <input class="col-md-3 manual-add-item generic generic-msrp" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">QUANTITY</label>
+                            <input type="number" class="col-md-3 manual-add-item generic amount" placeholder="#" required></input>
+                        </li>
+                        <li>
+                            <label class="manual-input-title col-md-2">Description</label>
+                            <textarea class="col-md-3 manual-add-item generic generic-description"></textarea>
+                        </li>
 
                 </div>
                 <div class="col-md-12 creation-button-holder">
@@ -211,19 +755,14 @@
          --><script type=text/template class=inventory-list-view><div class="inventory-item-modal-container"></div>
             <div class="inventory-page-container">
                 <div class="search-inventory-options col-md-12">
-                    <button class="full-inventory btn-default btn">Full Stock</button>
-                    <button class="full-backorders btn-default btn">All Backorders</button>
+                    <button class="search-all-inventory btn btn-default">All Items</button>
                     <button class="list-archived-items btn-default btn">Archived Items</button>
-                    <div class="search-it-all col-md-2">
-                        <button class="search-all-inventory form-control btn btn-success">SEARCH ALL</button>
-                    </div>
-                    <div class="col-md-4">
+                    <button class="list-backordered-items btn-default btn">All Backorders</button>
+                    <button class="list-instock-items btn-default btn">In Stock</button>
+                    <div class="col-md-4 inventory-search-input">
                         <select class="manufacturers form-control">
                             <option class="non-select">Select Manufacturer</option>
                         </select>
-                    </div>
-                    <div class="col-md-1 edit-inventory-button">
-                        <button class="btn btn-default edit-items form-control">EDIT</button>
                     </div>
                 </div>
                 <div id="inventory-search" class="col-md-12">
@@ -236,7 +775,7 @@
                     <div class="inventory-section col-md-1">BACKORDER</div>
                     <ul class="list"></ul>
                 </div>
-            </div></script><script type=text/template class=inventory-list-item-view><li style="display: block;" name="<%=itemType.attributes.Caliber%>" class="col-md-12 inventory-item">
+            </div></script><script type=text/template class=inventory-list-item-view><li style="display: block;" id="list-item-view" name="<%=itemType.attributes.Caliber%>" class="col-md-12 inventory-item">
                 <div class="try product-UPC col-md-1">
                     <div class="glyphicon glyphicon-edit edit-this-item btn btn-default" aria-hidden="true" id="myModal" data-toggle="modal" data-target="#myModal" name="<%=itemType.attributes.UPC%>"></div>
                 </div>
@@ -249,7 +788,7 @@
                 <div class="modal-content">
                   <div class="modal-header noPrint">
                     <button type="button" class="close close-preview" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title center-text" id="myModalLabel"><%=thisAttribute.Model%></h4>
+                    <h4 class="modal-title center-text clearfix" id="myModalLabel"><%=thisAttribute.Model%></h4>
                   </div>
                   <div class="modal-body">
                   <h5 class="modal-title center-text" id="myModalLabel">Fill in the fields and click save to update.</h5>
@@ -312,8 +851,10 @@
                   </form>
                   </div>
                   <div class="modal-footer noPrint">
+                  <% if(itemType.accessBy === Parse.User.current()){ %>
                     <button data-id="<%=itemType.id%>" class="btn-danger delete-this-item btn">DELETE</button>
                     <button data-id="<%=itemType.id%>" class="btn-default archive-this-item btn">ARCHIVE</button>
+                  <%}%>
                     <button type="button" data-id="<%=itemType.id%>" class="save-item-changes btn btn-success">SAVE CHANGES</button>
                     <button type="button" class="btn close-preview btn-default" data-dismiss="modal">CLOSE</button>
 
@@ -349,13 +890,11 @@
 
          --><script type=text/template class=order-list-view><div class="remove-orders-to-print">
                 <button class="btn btn-default newest-to-oldest" style="display:none;">Newest > Oldest</button>
-                <button class="btn btn-default server-dump" id="contact" onClick="new CsvDumpView();">
-                    <i class="fa fa-database"></i>
-                </button>
                 <button class="btn btn-default all-orders">View All</button>
                 <button class="btn btn-default backordered-orders">Backordered</button>
                 <button class="btn btn-default pending-orders">Pending</button>
                 <button class="btn btn-default fulfilled-orders">Fulfilled</button>
+                <button class="btn btn-default server-dump" id="contact" onClick="new CsvDumpView();"><i class="fa fa-share"></i> CSV</button>
             <hr class="odd-hr">
             <div class="col-md-12" id="orders-search">
                 <div class="input-group col-md-4 search-rds">
@@ -364,53 +903,21 @@
                 </div>
                 <ul class="list"></ul>
             </div>
-            <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="col-md-12 no-left-padding order-container">
+            <ul class="order-detail-bound"></ul></script><script type=text/template class=order-list-item-view><li class="col-md-12 no-left-padding order-container" onClick="router.navigate('order/<%=order.id%>',{trigger:true})">
                 <div class="order-instance col-md-12" id="<%=order.id%>"> 
-                <div class="noPrint col-md-2">Order No. : <span class="order-number"><%=order.attributes.orderNumber%></span></div>
+                <div class="noPrint col-md-1">#<span class="order-number"><%=order.attributes.orderNumber%></span></div>
                 <div class="noPrint col-md-4">Customer : <span class="order-customer"><%=customer.attributes["Company"]%></span></div>
                 <div class="noPrint col-md-4">Placed : <span class="order-date"><%=order.attributes.date%></span></div>
-                <button class="btn btn-default col-md-2" onClick="router.navigate('order/<%=order.id%>',{trigger:true})">INVOICE</button>
+                <button class="btn btn-default col-md-1">INVOICE</button>
                 <div class="preview-modal-holder"></div>
                 </div>
+
             </li></script><script type=text/template class=order-detail-view><button class="btn order-detail-button" onClick="router.navigate('order',{trigger:true})">BACK
             <li>
                 <div>Item : <%=itemType.attributes.Model%></div>
                 <div>SerialNum : <%=item.attributes.serialNumber%></div>
                 <div>Status : <%=item.attributes.itemInstanceCode%></div>
-            </li></script><script type=text/template class=invoice-preview-modal><div class="modal in fade" name="<%=id%>" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header noPrint" id="<%=id%>">
-                    <button type="button" class="close close-preview" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"></h4>
-                  </div>
-                  <div class="modal-body">
-                    <div class="final-order">
-                    <div class="order-heading">
-                        <img class="aa-tactical"src="http://imgur.com/lwT9J0X.png">
-                        <ul class="seller-info">
-                            <li>Allen Arms Indoor Range</li>
-                            <li>1210 pointset Highway</li>
-                            <li>Greenville, SC 29609</li>
-                            <li>Store: (864) 250-2007</li>
-                            <li>Fax: (864) 271-0806</li>
-                        </ul>
-                    </div>
-
-                    <div class="customer-info"></div>
-                    <h3 class="ship-head">To Ship</h3>
-                    <div class="in-stock-items"></div>
-                    <h3 class="backorder-head">Backordered</h3>
-                    <div class="backorder-items"></div>
-                  </div>
-                  <div class="modal-footer noPrint">
-                    <button type="button" class="btn close-preview btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default print-preview"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></button>
-                    <button type="button" class="btn btn-danger" onClick="router.navigate('order/<%=id%>',{trigger:true})">Edit Invoice</button>
-                  </div>
-                </div>
-              </div>
-            </div></script><!-- 
+            </li></script><!-- 
 
                         Fullstock List                                                              Full Stock List
     
@@ -434,24 +941,20 @@
               <div class="input-group">
                   <div class="search-by-state"><button class="btn btn-default" onClick="router.navigate('customers',{trigger:true})">Search List</button></div>
               </div>
-          </div></script><script type=text/template class=customer-by-state-view><div id="<%=index%>" class=" col-md-3 merchant btn-default"><%=merchant.attributes.Company%></div></script><script type=text/template class=customer-order-view><div class="customer-order-detail-top"><%=merchant.attributes.Company%></div>
-            <div class="customer-detail-font display-inline"><%=merchant.attributes.Address1%></div>
-            <div class="customer-detail-font display-inline"><%=merchant.attributes.City%></div>
-            <div class="customer-detail-font customer-order-detail-bottom display-inline"><%=merchant.attributes.State%></div>
-            <div class="shopping-cart-bound"></div>
-        <div class="app-merchant-bound">
-            <div class="accept-merchant btn btn-default">ACCEPT</div>
-            <div class="cancel-merchant btn btn-default">CANCEL</div>
-        </div></script><script type=text/template class=order-inventory-list-view><hr class="odd-hr order-hr">
-        <button class="confirm-order-button btn btn-default col-md-1">Check Out</button>
+          </div></script><script type=text/template class=order-inventory-list-view><div class="order-button-container">
+            <i class="fa fa-chevron-left"></i>
+            <p>Review Order</p>
+        </div>
+        <div class="modal-cover"></div>
+        <div class="col-md-12">
             <div class="manufacturer-names no-padding col-md-12">
-              <div class="search-it-all col-md-2">
-                  <button class="search-all-inventory form-control btn btn-success">SEARCH ALL</button>
-              </div>
-              <div class="col-md-3 order-manufacturer-select">
+              <div class="col-md-4 order-manufacturer-select">
                   <select class="manufacturers form-control">
                   <option>Select Manufacturer...</option>
                   </select>
+              </div>
+              <div class="search-it-all col-md-2">
+                  <button class="search-all-inventory form-control btn btn-default">All Items</button>
               </div>
             </div>
             <div id="inventory-search" class="order-list-items">
@@ -463,62 +966,72 @@
                 <div class="col-md-8 inventory-section">ITEM TYPE</div><div class="inventory-section center-text col-md-2">INVENTORY</div><div class="inventory-section center-text col-md-2">BACKORDER</div>
             </div>
             <ul class="list"></ul>
+            </div>
+            </div>
+            <div class="order-form-container closed-cart col-md-4">
+                <div class="float-right minimize-cart col-md-12">
+                    <i class="fa fa-chevron-left"/>
+                    <i class="fa fa-shopping-cart cart-icon no-padding"/>
+                </div>
+
+                <div class="order-items-list">
+                </div>
+                <button class="confirm-order-button btn btn-default col-md-8 col-md-offset-2">CHECK OUT</button>
+            </div</script><script type=text/template class=order-modal-button><div class="order-button-container" disabled="disabled">
+                <i class="fa fa-chevron-left"></i>
             </div></script><script type=text/template class=order-inventory-list-item-view><li class="col-md-12">
-                <div class="product-id col-md-1">
+                <div class="product-id col-md-2">
                     <button class="order-item btn btn-default" value="<%=itemType.id%>"><%=itemType.attributes.DealerPrice%></button>
                 </div>
-                <div class="item-type col-md-7"> <%=itemType.attributes.Model%></div>
+                <div class="item-type col-md-6"> <%=itemType.attributes.Model%></div>
                 <div class="all-inventory-number number-center col-md-2" id="<%=itemType.attributes.UPC%>"><%if(itemType.attributes.totals && itemType.attributes.totals[0]){%><%=itemType.attributes.totals[0]%><%}else{%>0<%}%></div>
                 <div class="backorder-number number-center col-md-2" id="<%=itemType.attributes.UPC%>"><%if(itemType.attributes.totals && itemType.attributes.totals[1]){%><%=itemType.attributes.totals[1]%><%}else{%>0<%}%></div>
-            </li></script><script type=text/template class=order-inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=order-shopping-cart-view><div class="shopping-cart-item btn btn-success"><span><%=item[2]%></span></div></script><script type=text/template class=confirm-order-view><div class="top-info-bound">
-            <div class="merchant-info">
-                <div class="bold"><%=customer.Company%></div>
-                <div><span><%=customer.FirstName%></span> <span><%=customer.LastName%></div>
-                <div><%=customer.Address1%></div>
-                <div><span><%=customer.City%></span> <span><%=customer.State%></span> <span><%=customer.Zip%></span></div>
-                <div><%=customer.email%></div>
-                <div><%=customer.Phone%></div>
-
-            </div>
-            <div class="seller-info">
-                <img class="seller-icon" src="images/7e3ff5a8.aa-tactical.png">
-                <div class="bold">Greenville SC</div>
-            </div>  
-        <div>
-        <div class="item-list-bound">
+            </li></script><script type=text/template class=order-inventory-list-detail-view><li class="item-instance"><span>Name: <%=item.itemName%></span><span> Serial Num: <%=item.serialNumber%></span></li></script><script type=text/template class=order-shopping-cart-view><div class="shopping-cart-item btn btn-default col-md-12"><span><%=item[2]%></span></div></script><script type=text/template class=confirm-order-view><div class="col-md-12 cart-items-header no-padding">
+            <div class="col-md-3 no-padding"># ITEM</div>
+            <div class="col-md-7 no-padding">DESCRIPTION</div>
+            <div class="col-md-2 no-padding">TOTAL</div>
+        </div>
+        <div class="item-list-bound col-md-12">
             <div class="item-instance-bound"></div>
-        <fieldset id="shipping_info">
-          <p>
-            <label for="shipping">Shipping:</label>
-            <select name="shipping" id="shipping">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="Other">Other(Specify)</option>
-            </select>
-            <input id="other_cost" name="other_cost" type="number" />
-          </p>
-        </fieldset>
+            <div class="col-md-12">
+                <fieldset class="col-md-4" id="shipping_info">
+                  <p>
+                    <label for="shipping">Shipping:</label>
+                    <select class="form-control" name="shipping" id="shipping">
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="Other">Other(Specify)</option>
+                    </select>
+                    <input class="form-control" id="other_cost" name="other_cost" type="number" />
+                  </p>
+                </fieldset>
+            </div>
         </div>
 
         <div class="item-total-bound">
-            <div class="cart-total"></div>
-        <button class="btn update-total">Update</button>
-        <button class="btn confirm-list">Confirm</button>
-        </div></script><script type=text/template class=confirm-order-item-instance-view><div>
-                <span class="item-name  "><%=item.Manufacturer%> <%=item.Model%></span>
-                <span> x</span>
-                <span><input type ="number" id="<%=item.id%>"class="cart-item-instance" value="<%=item.quan%>"></span>
-                <span> <%=item.DealerPrice%> </span>
-                <span>=<span class="total-item-cost"><%= (parseInt(item.DealerPrice.replace(/\s+/g, '').replace(/\,/g,'').substr(1)))*(item.quan) %></span></span>
-            </div></script><script type=text/template class=update-order-total-view><div class="col-md-5 total-div">TOTAL</div><div class="sum-div col-md-7"><span><%=sum%></span></div></script><!-- FINAL ORDER TEMPLATE                                                                               FINAL ORDER TEMPLATE --><script type=text/template class=final-order-instance-view><div class="final-order">
+        <div class="cart-total"></div>
+        <div class="btn-holder col-md-12 no-padding">
+            <button class="btn btn-default add-to-order">Continue Shopping</button>
+            <button class="btn btn-default update-total">Update Total</button>
+            <button class="btn btn-default confirm-list">Checkout</button>
+        </div>
+        </div></script><script type=text/template class=confirm-order-item-instance-view><div class="col-md-12 order-item-container">
+                <div class="col-md-12">
+                    <input type ="number" id="<%=item.id%>"class="cart-item-instance form-control col-md-3" value="<%=item.quan%>">
+                    <div class="item-name order-item col-md-7"><%=item.Manufacturer%> <%=item.Model%></div>
+                    <div class="col-md-2"><span class="total-item-cost">$<%= (parseInt(item.DealerPrice.replace(/\s+/g, '').replace(/\,/g,'').substr(1)))*(item.quan) %></span></div>
+                </div>
+                </div>
+                </div>
+            </div></script><script type=text/template class=update-order-total-view><div class="col-md-5 total-div">TOTAL</div><div class="sum-div col-md-7"><span class="total-text"></span></div></script><!-- FINAL ORDER TEMPLATE                                                                               FINAL ORDER TEMPLATE --><script type=text/template class=final-order-instance-view><div class="final-order col-md-12">
             <div class="order-heading">
-                <img class="aa-tactical"src="http://imgur.com/lwT9J0X.png">
+                <img class="aa-tactical"src="<%=Parse.User.current().get('logo')._url%>">
                 <ul class="seller-info">
-                    <li>Allen Arms Indoor Range</li>
-                    <li>1210 pointset Highway</li>
-                    <li>Greenville, SC 29609</li>
-                    <li>Store: (864) 250-2007</li>
-                    <li>Fax: (864) 271-0806</li>
+                    <li><%=Parse.User.current().get('company')%></li>
+                    <li><%=Parse.User.current().get('addressOne')%></li>
+                    <li><%=Parse.User.current().get('addressTwo')%></li>
+                    <li>Store: <%=Parse.User.current().get('phone')%></li>
+                    <li>Email: <%=Parse.User.current().get('email')%></li>
                 </ul>
             </div>
 
@@ -528,8 +1041,8 @@
             <h3 class="backorder-head">Backordered</h3>
             <div class="backorder-items"></div>
             <div class="invoice-buttons">
-                <button class="btn btn-info print-sales noPrint">Print Sales Order</button>
                 <button class="btn btn-info print-invoice noPrint">Print Invoice</button>
+                <button class="btn btn-danger void-invoice noPrint">Void Invoice</button>
             </div></script><script type=text/template class=customer-info-order-template><div class="customer-info-bound">
             <ul class="left-info">
                 <% if(customer.get('FirstName')){%>
@@ -557,20 +1070,32 @@
                 <li>Invoice Date: <%=(order.createdAt.getMonth()+1)%>/<%=order.createdAt.getDate()%>/<%=order.createdAt.getFullYear()%></li>
             </ul>
         </div></script><script type=text/template class=customer-info-order-items-template><ul class="ordered-item <%= item.id %>">
-            <li>
-                <span><%= type.get('Manufacturer') %></span>
-                <span> <%= type.get('Model') %></span>
-                <span> <%= type.get('Caliber') %></span>
-            </li>
-            <li>
-            <% if(item.get('serialNumber')){%>
-                <span>Serial: <%= item.get('serialNumber') %>
-            <%}%>
-            </li>
-            <li class="item-dealer-price">
-                <span class="item-price"><%=type.get('DealerPrice')%></span>
-            </li>
+                <% if(item.get('backOrder')){%>
+                    <span><button id="<%=item.id%>" class="btn btn-danger btn-small undo-backorder noPrint"><i class="fa fa-times"></i></button></span>
+                <%}else{%>
+                    <span><button id="<%=item.id%>" class="btn btn-small invisible noPrint"><i class="fa fa-times"></i></button></span>
+                <%}%>
+
+                <li>
+                    <span><%= type.get('Manufacturer') %></span>
+                    <span> <%= type.get('Model') %></span>
+                    <span> <%= type.get('Caliber') %></span>
+                </li>
+                <li>
+                <% if(item.get('serialNumber')){%>
+                    <span>Serial: <%= item.get('serialNumber') %>
+                <%}%>
+                </li>
+                <li class="item-dealer-price">
+                    <span class="item-price"><%=type.get('DealerPrice')%></span>
+                </li>
             </ul></script><script type=text/template class=customer-info-backorder-template><ul class="backordered-item <%= backorder.id %>">
+            <% if(backorder.get('pending') === true){ %>
+                <span><button id="<%=backorder.id%>" class="btn btn-success btn-small apply-instance noPrint"><i class="fa fa-plus"></i></button></span>
+            <%}else{%>
+                <span><button id="<%=backorder.id%>" class="btn btn-small awaiting-instance noPrint" disabled
+                ><i class="fa fa-ban"></i></button></span>
+            <%}%>
             <li>
                 <span><%= type.Manufacturer %></span>
                 <span> <%= type.Model %></span>
@@ -730,7 +1255,7 @@
                                 </div>
                               </div>
                           </form>
-                          <div class="add-customer creation-button new-customer-submit"><button class="btn btn-info btn-primary">SAVE CUSTOMER</button></div>
+                          <div class="add-customer creation-button"><button class="btn btn-info btn-primary new-customer-submit">SAVE CUSTOMER</button></div>
                           <div class="cancel-customer creation-button"><button class="btn btn-info btn-warning">CANCEL</button></div>
                       </div>
                       <hr class="odd-hr">
@@ -744,7 +1269,7 @@
             </div></script><script type=text/template class=customer-list-item><td style="display: block;" class="col-md-offset-1">
                     <div class="customer-container col-md-5">
                         <div class="glyphicon glyphicon-edit edit-customer btn btn-default" aria-hidden="true" id="customerModal" data-toggle="modal" data-target="#basicModal" name="<%= customer.Company %>"></div>
-                        <div class="add-order btn btn-success" id="<%=model.id%>">order</div>
+                        <div class="add-order btn btn-default" id="<%=model.id%>">New Order</div>
                         <div class="show company-name"><%=customer.Company%></div>
                         <hr class="customer-division"/>
                         <div class="show company-owner">OWNER: <%= customer.FirstName %> <%=customer.LastName%></div>
@@ -897,70 +1422,95 @@
                 </ul>
             </div>
             <hr class="odd-hr">
-            <div class="profile-page-container">
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
+            <div class="profile-page-container col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
                         <label>COMPANY</label>
                         <div class="input-group col-md-12">
                             <input id="item-info-block" class="profile-edit form-control company-input" placeholder="<%=user.get('company')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
-                        <label>ADDRESS</label>
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
+                        <label>STREET ADDRESS</label>
                         <div class="input-group col-md-12">
-                            <input id="item-info-block" class="form-control profile-edit address-input" placeholder="<%=user.get('address')%>" disabled="true"></input>
+                            <input id="item-info-block" class="form-control profile-edit address-one-input" placeholder="<%=user.get('addressOne')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
+                        <label>CITY / STATE / ZIP</label>
+                        <div class="input-group col-md-12">
+                            <input id="item-info-block" class="form-control profile-edit address-two-input" placeholder="<%=user.get('addressTwo')%>" disabled="true"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
+                        <label>PHONE</label>
+                        <div class="input-group col-md-12">
+                            <input id="item-info-block" class="form-control profile-edit phone-input" placeholder="<%=user.get('phone')%>" disabled="true"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
                         <label>OWNER</label>
                         <div class="input-group col-md-12">
                             <input id="item-info-block" class="form-control profile-edit owner-input" placeholder="<%=user.get('owner')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
                         <label>FFL</label>
                         <div class="input-group col-md-12">
                             <input id="item-info-block" class="form-control profile-edit ffl-input" placeholder="<%=user.get('ffl')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
                         <label>USERNAME</label>
                         <div class="input-group col-md-12">
                             <input id="item-info-block" class="form-control profile-edit username-input" placeholder="<%=user.get('username')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
-                    <div class="form-group sign-in-form col-md-7">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
                         <label>EMAIL</label>
                         <div class="input-group col-md-12">
                             <input id="item-info-block" class="form-control profile-edit email-input" placeholder="<%=user.get('email')%>" disabled="true"></input>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
-                <div class="col-md-9">
+                <div class="col-md-6">
+                    <div class="form-group sign-in-form col-md-12">
+                        <label>UPLOAD LOGO</label>
+                        <div class="input-group col-md-12">
+                        <input type="file" id="myFile" class="form-control profile-edit logo-input" disabled="true" multiple size="50">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 last-profile">
+                    <div class="form-group sign-in-form col-md-12">
+                        <label>EXISTING LOGO</label>
+                        <div class="input-group col-md-12" id="picit">
+                            <img class="col-md-6 no-padding" id="logo-img" src="images/cd369481.pre-load.png" alt="your logo"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
                     <button type="button" class="save-profile-changes btn btn-success">SAVE</button>
                 </div>
             </div></script><!-- MOONCLERK PAYMENT FORM CODE FOR PROFILE PAGE --><script type=text/template class=profile-payment-template><div class="payment-form-container col-md-5">
             <div id="mccczyuz8ulhv">
                 <a href="https://app.moonclerk.com/pay/cczyuz8ulhv">OPLAN Monthly Subscription</a>
             </div>
-            <script type="text/javascript">var mccczyuz8ulhv;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"cczyuz8ulhv","width":"100%"};s.src='https://d2l7e0y6ygya2s.cloudfront.net/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mccczyuz8ulhv=new MoonclerkEmbed(opts);mccczyuz8ulhv.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script><script type=text/template class=contact-page-template><div class="contact-us-container col-md-8 col-md-offset-2">
+            <script type="text/javascript">var mccczyuz8ulhv;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"cczyuz8ulhv","width":"100%"};s.src='https://d2l7e0y6ygya2s.cloudfront.net/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mccczyuz8ulhv=new MoonclerkEmbed(opts);mccczyuz8ulhv.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script><script type=text/template class=contact-page-template><div class="contact-us-container col-md-10 col-md-offset-1">
                 <div class="col-md-12 here-to-help-outer center-text">
                     We&#39;re here to help!
                 </div>
@@ -977,18 +1527,23 @@
                     <div class="contact-info-right col-md-7">
                         <ul>
                             <li>Coming Soon!</li>
-                            <li>operationsplanco@gmail.com</li>
-                            <li>Coming Soon!</li>
+                            <li>support@oplan.com</li>
+                            <li>1040 W Washington St, Greenville, SC 29601</li>
                         <ul>
                     </div>
                 </div>
-            </div></script><script src=scripts/921203ac.vendor.js></script><script src=//www.parsecdn.com/js/parse-1.3.2.min.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><!-- ADD SCRIPT TAG HERE --><!-- (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            </div></script><script type=text/template class=analytics-page-template><div class="d3-analytics-here"></div>
+            <button class="thisHere">ThisHere</button>
+            <div class="chart"></div>
+            <div style="width:85%;height:300px;margin:auto">
+                <div id="chart_div"><div>
+            </div></script><script type=text/template class=d3-analytics-template></script><script src=scripts/921203ac.vendor.js></script><script src=//www.parsecdn.com/js/parse-1.3.2.min.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><!-- ADD SCRIPT TAG HERE --><!-- (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview'); --><!-- ADD SCRIPT TAG HERE --><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=http://listjs.com/no-cdn/list.pagination.js></script><script src=scripts/21901dc7.main.js></script><!-- <li class="col-md-12 nav-link" id="order" onClick="router.navigate('order',{trigger:true})"><i class="nav-icon fa fa-file-o"></i> PLACE ORDER
-</li> --><!-- FILTERS FROM INVENTORY PAGE --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Advanced Armament Co">ADVANCED ARMAMENT CO</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Silencerco">SILENCERCO</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="Surefire">SUREFIRE</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="GEMTECH">GEMTECH</li> --><!-- <li class="manufacturer col-md-2  btn-default btn" name="OSS Mission">OSS MISSION</li> --><!-- PREVIEW INVOICE BUTTON --><!-- <button type="button" id="<%=order.id%>" class="btn btn-success preview-invoice" data-toggle="modal" data-target="#myModal">
+            ga('create','UA-XXXXX-X');ga('send','pageview'); --><!-- ADD SCRIPT TAG HERE --><script src=scripts/6b5da0e8.plugins.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js><script src=http://listjs.com/no-cdn/list.pagination.js></script><script src=scripts/typed.min.js></script><script src=scripts/92176d6f.main.js></script><!-- <li class="col-md-12 nav-link" id="order" onClick="router.navigate('order',{trigger:true})"><i class="nav-icon fa fa-file-o"></i> PLACE ORDER
+</li> --><!-- PREVIEW INVOICE BUTTON --><!-- <button type="button" id="<%=order.id%>" class="btn btn-success preview-invoice" data-toggle="modal" data-target="#myModal">
   PREVIEW
 </button> --><!-- customer info order items template --><!-- <button id="<%=item.id%>"class="btn-danger btn void-invoice-item-i noPrint">x</button> --><!-- customer info backorder template --><!-- <button id="<%= backorder.id %>"class="btn-danger btn void-invoice-item-b noPrint">x</button> --><!-- order-list-view --><!--     <button class="filter-inventory btn-default btn">Filter<div class="pointer"></div></button>
 </div>
@@ -1006,4 +1561,7 @@
         <button id=".45" name="45 auto" class="filter-name btn-default btn">.45</button>
         <button id="add-filter" class="filter-name btn-success btn">+</button>
     </div>
-</div> -->
+</div> --><!-- INVENTORY LIST VIEW BUTTONS --><!-- <button class="full-inventory btn-default btn">Full Stock</button>
+<button class="full-backorders btn-default btn">All Backorders</button> --><!-- NAVBAR LINK --><!-- <li class="col-md-12 nav-link" id="analytics" onClick="router.navigate('analytics',{trigger:true})">
+    <i class="nav-icon fa fa-area-chart"></i> ANALYTICS
+</li> --><!-- <img class="hero-img" src="images/2ec66d41.preview-screen.png"/> -->
